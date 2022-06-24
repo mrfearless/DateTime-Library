@@ -10,8 +10,6 @@ formats: all
 
 python:
   install:
-    - method: pip
-      path: .
     - requirements: docs/requirements.txt
 
 build:
@@ -22,4 +20,4 @@ build:
 sphinx:
   builder: html
   configuration: docs/conf.py
-  fail_on_warning: true
+  fail_on_warning: false
