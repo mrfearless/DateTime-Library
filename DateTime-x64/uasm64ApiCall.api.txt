@@ -1,0 +1,30 @@
+;-----------------------------------------------------------------------------------------------------
+; DateTime x64 Library
+;
+; Paste this text at the end of \Radasm\UASM64\uasm64ApiCall.api to add these to Radasm
+;
+;-----------------------------------------------------------------------------------------------------
+DTGetDateTime,lpszDateTimeString,DateFormat
+DTDateFormat,lpSystermtimeStruct,lpszDateTimeString,DateFormat
+DTDateTimeStringToQwordDateTime,lpszDateTimeString,DateFormat
+DTQwordDateTimeToDateTimeString,qwDate,dwTime,lpszDateTimeString,DateFormat
+DTQwordDateToJulianDate,qwDate
+DTJulianDateToQwordDate,JulianDate
+DTDateTimeStringToJulianMillisec,lpszDateTimeString,DateFormat
+DTJulianMillisecToDateTimeString,JulianDate,Milliseconds,lpszDateTimeString,DateFormat
+DTQwordDateTimeToJulianMillisec,qwDate,qwTime
+DTJulianMillisecToQwordDateTime,JulianDate,Milliseconds
+DTDateTimeStringToUnixTime,lpszDateTimeString,DateFormat
+DTUnixTimeToDateTimeString,UnixTime,lpszDateTimeString,DateFormat
+DTQwordDateTimeToUnixTime,qwDate,qwTime
+DTUnixTimeToQwordDateTime,UnixTime
+DTQwordTimeToMillisec,qwTime
+DTMillisecToQwordTime,Milliseconds
+DTDayOfWeek,lpszDateTimeString,DateFormat
+DTIsLeapYear,qwYear
+DTDay,lpszDateTimeString,DateFormat
+DTMonth,lpszDateTimeString,DateFormat
+DTYear,lpszDateTimeString,DateFormat
+DTDateStringsCompare,lpszDateTimeString1,lpszDateTimeString2,DateFormat
+DTDateStringsDifference,lpszDateTimeString1,lpszDateTimeString2,DateFormat
+DTDateTimeStringsDifference,lpszDateTimeString1,lpszDateTimeString2,DateFormat
