@@ -1,6 +1,6 @@
 ;==============================================================================
 ;
-; DateTime Library x64 v1.0.0.2
+; DateTime Library x64 v1.0.0.3
 ;
 ; Copyright (c) 2022 by fearless
 ;
@@ -53,6 +53,9 @@ include windows.inc
 
 include DateTime.inc
 
+include Masm64.Inc
+includelib Masm64.lib
+
 EXTERN DTUnixTimeToQwordDateTime :PROTO UnixTime:QWORD
 EXTERN DTQwordDateTimeToDateTimeString :PROTO qwDate:QWORD, qwTime:QWORD, lpszDateTimeString:QWORD, DateFormat:QWORD
 
@@ -92,6 +95,11 @@ DATETIME_ALIGN
 DTUnixTimeToDateTimeString PROC FRAME USES RDX UnixTime:QWORD, lpszDateTimeString:QWORD, DateFormat:QWORD
     LOCAL _Date:QWORD
     LOCAL _Time:QWORD
+    
+    .IF DateFormat == UNIXTIMESTAMP
+        Invoke qwtoa, UnixTime, lpszDateTimeString
+        ret
+    .ENDIF
     
     Invoke DTUnixTimeToQwordDateTime, UnixTime
     mov _Date, rax

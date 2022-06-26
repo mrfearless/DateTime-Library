@@ -4,7 +4,7 @@
 DTUnixTimeToDateTimeString 
 ===================================
 
-Converts a unix time ``UNIXTIMESTAMP`` value to a formatted date & time string as specified by the ``DateFormat`` parameter.
+Converts a ``DWORD`` containing a unix time integer value to a formatted date & time string as specified by the ``DateFormat`` parameter.
 
     
 ::
@@ -14,7 +14,7 @@ Converts a unix time ``UNIXTIMESTAMP`` value to a formatted date & time string a
 
 **Parameters**
 
-* ``UnixTime`` - Unix timestamp value ``UNIXTIMESTAMP`` to convert to a date & time string.
+* ``UnixTime`` - ``DWORD`` containing a unix time integer value to convert to a date & time string.
 * ``lpszDateTimeString`` - Pointer to a buffer to store the date & time string. The format of the date & time string is determined by the ``DateFormat`` parameter.
 * ``DateFormat`` - Value indicating the date & time format to return in the buffer pointed to by ``lpszDateTimeString`` parameter. The parameter can contain one of the following constants as listed in the :ref:`DateTime Formats<DateTime Formats>` page and as defined in the ``DateTime.inc`` include file.
 
@@ -26,6 +26,8 @@ There is no return value, the date & time string will contain the date & time as
 **Notes**
 
 Unix time is defined as the number of seconds elapsed since 00:00 Universal time on January 1, 1970 in the Gregorian calendar (Julian day 2440587.5)
+
+The ``UNIXTIMESTAMP`` format is a **string** representation of the unix time in integer format if used as the ``DateFormat`` value.
 
 
 **Example**
@@ -40,6 +42,16 @@ Unix time is defined as the number of seconds elapsed since 00:00 Universal time
    ; DateTimeString should now contain the string "11/06/2010 17:47:00:00"
 
 
+**Example**
+
+::
+
+   .data
+   DateTimeStringValue db DATETIME_STRING dup (0)
+   
+   .code
+   Invoke DTUnixTimeToDateTimeString, 1656241202, Addr szDateTimeString, UNIXTIMESTAMP
+   ; DateTimeString should now contain the string "1656241202"
 
 **See Also**
 

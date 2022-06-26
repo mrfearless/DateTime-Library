@@ -4,7 +4,7 @@
 DTUnixTimeToQwordDateTime 
 ===================================
 
-Converts a unix time ``UNIXTIMESTAMP`` value to ``QWORD`` values containing date and time information.
+Converts a ``QWORD`` containing a unix time integer value to ``QWORD`` values containing date and time information.
     
 ::
 
@@ -13,7 +13,7 @@ Converts a unix time ``UNIXTIMESTAMP`` value to ``QWORD`` values containing date
 
 **Parameters**
 
-* ``UnixTime`` - Unix timestamp value ``UNIXTIMESTAMP`` to convert to ``QWORD`` date & time values.
+* ``UnixTime`` - ``QWORD`` containing a unix time integer value to convert to ``QWORD`` date & time values.
 
 
 **Returns**

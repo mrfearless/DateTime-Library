@@ -9,5 +9,6 @@ Introduction
    
    overview
    installation & setup
+   building
    contributing
    faq

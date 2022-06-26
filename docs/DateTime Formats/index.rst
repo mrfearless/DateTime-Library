@@ -86,6 +86,10 @@ The following are constants defined in the ``DateTime.inc`` include file.
 +------------------------+----------------------------------+
 |                        |                                  |
 +------------------------+----------------------------------+
+| UNIXTIMESTAMP          | 1276278420                       |
++------------------------+----------------------------------+
+|                        |                                  |
++------------------------+----------------------------------+
 | TODAY                  | same as DDMMCCYYHHMMSS           |
 +------------------------+----------------------------------+
 | NOW                    | same as DDMMCCYYHHMMSS           |
@@ -113,6 +117,9 @@ The following are constants defined in the ``DateTime.inc`` include file.
 
 
 .. note:: Constants: CC=Century, YY=Year, MM=Month, DD=Day, HH=Hours, MM=Minutes, SS=Seconds, MS=Milliseconds, DOW=Day Of Week 
+
+
+.. note:: The **UNIXTIMESTAMP** format is a **string** representation of the unix time in integer format and used in the :ref:`DTDateTimeStringToUnixTime<DTDateTimeStringToUnixTime>` and :ref:`DTUnixTimeToDateTimeString<DTUnixTimeToDateTimeString>` functions.
 
 
 

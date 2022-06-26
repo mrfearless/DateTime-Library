@@ -1,6 +1,6 @@
 ;==============================================================================
 ;
-; DateTime Library v1.0.0.2
+; DateTime Library v1.0.0.3
 ;
 ; Copyright (c) 2022 by fearless
 ;
@@ -45,6 +45,9 @@ include \masm32\macros\macros.asm
 
 include DateTime.inc
 
+include masm32.inc
+includelib masm32.lib
+
 EXTERN DTUnixTimeToDwordDateTime :PROTO UnixTime:DWORD
 EXTERN DTDwordDateTimeToDateTimeString :PROTO dwDate:DWORD, dwTime:DWORD, lpszDateTimeString:DWORD, DateFormat:DWORD
 
@@ -84,6 +87,11 @@ DATETIME_ALIGN
 DTUnixTimeToDateTimeString PROC USES EDX UnixTime:DWORD, lpszDateTimeString:DWORD, DateFormat:DWORD
     LOCAL _Date:DWORD
     LOCAL _Time:DWORD
+    
+    .IF DateFormat == UNIXTIMESTAMP
+        Invoke dwtoa, UnixTime, lpszDateTimeString
+        ret
+    .ENDIF
     
     Invoke DTUnixTimeToDwordDateTime, UnixTime
     mov _Date, eax

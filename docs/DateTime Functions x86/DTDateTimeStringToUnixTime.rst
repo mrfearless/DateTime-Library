@@ -4,7 +4,7 @@
 DTDateTimeStringToUnixTime 
 ===================================
 
-Converts a formatted date & time string to a unix time ``UNIXTIMESTAMP`` value.
+Converts a formatted date & time string to a ``DWORD`` value containing a unix time integer value.
     
 ::
 
@@ -13,13 +13,13 @@ Converts a formatted date & time string to a unix time ``UNIXTIMESTAMP`` value.
 
 **Parameters**
 
-* ``lpszDateTimeString`` - Pointer to a buffer containing the date & time string to convert to a ``UNIXTIMESTAMP`` value. The format of the date & time string is determined by the ``DateFormat`` parameter.
+* ``lpszDateTimeString`` - Pointer to a buffer containing the date & time string to convert to a ``DWORD`` value containing a unix time integer value. The format of the date & time string is determined by the ``DateFormat`` parameter.
 * ``DateFormat`` - Value indicating the date & time format used in the buffer pointed to by ``lpszDateTimeString`` parameter. The parameter can contain one of the following constants as listed in the :ref:`DateTime Formats<DateTime Formats>` page and as defined in the ``DateTime.inc`` include file.
 
 
 **Returns**
 
-On return ``EAX`` contains the unix time as a ``UNIXTIMESTAMP`` value.
+On return ``EAX`` contains the unix time as a ``DWORD`` value.
 
 **Notes**
 
@@ -28,6 +28,10 @@ Some information may be unavailable to convert if the passed DateTime string doe
 To prevent this, always pass a full date time string of ``CCYYMMDDHHMMSSMS`` format or similar (``DDMMCCYYHHMMSSMS`` or ``MMDDCCYYHHMMSSMS``)
 
 Unix time is defined as the number of seconds elapsed since 00:00 Universal time on January 1, 1970 in the Gregorian calendar (Julian day 2440587.5)
+
+The ``UNIXTIMESTAMP`` format is a **string** representation of the unix time in integer format if used as the ``DateFormat`` value.
+
+
 
 
 **Example**
@@ -43,6 +47,21 @@ Unix time is defined as the number of seconds elapsed since 00:00 Universal time
    .code
    Invoke DTDateTimeStringToUnixTime, Addr DateTimeStringValue, CCYYMMDDHHMMSSMS
    mov UnixTime, eax ; save unix time value to data variable which should contain 1206116461
+
+
+**Example**
+
+::
+
+   .data
+   UnixTimeAsAStringValue db "1656241202",0 ; Sun Jun 26 2022 11:00
+   
+   .data?
+   UnixTime dd ?
+   
+   .code
+   Invoke DTDateTimeStringToUnixTime, Addr UnixTimeAsAStringValue, UNIXTIMESTAMP
+   mov UnixTime, eax ; save unix time value to data variable which should contain 1656241202
 
 
 **See Also**

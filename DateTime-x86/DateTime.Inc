@@ -1,6 +1,6 @@
 ;==============================================================================
 ;
-; DateTime Library v1.0.0.2
+; DateTime Library v1.0.0.3
 ;
 ; Copyright (c) 2022 by fearless
 ;
@@ -74,7 +74,9 @@
 ; 
 ; Gregorian calendar:
 ; https://en.wikipedia.org/wiki/Gregorian_calendar
-
+;
+; Unix Time Stamp - Epoch Converter
+; https://www.unixtimestamp.com/index.php
 
 ;------------------------------------------------------------------------------
 ; DateTime Prototypes
@@ -198,6 +200,9 @@ HHMMSSMS                            EQU 29 ; Example 14:53:01
 HHMMSS                              EQU 30 ; Example 14:53:01       
 HHMM                                EQU 31 ; Example 14:53
 HH                                  EQU 32 ; Example 14
+
+; UnixTimeStamp string
+UNIXTIMESTAMP                       EQU 33 ; Example "1276278420"
 
 ; Useful Named Constants            
 TODAY                               EQU DDMMCCYYHHMMSS

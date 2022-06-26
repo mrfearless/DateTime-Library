@@ -4,7 +4,7 @@
 DTQwordDateTimeToUnixTime 
 ===================================
 
-Converts ``QWORD`` values containing date & time information to a unix time ``UNIXTIMESTAMP`` value. On return ``RAX`` contains the ``UNIXTIMESTAMP`` value.
+Converts ``QWORD`` values containing date & time information to a ``QWORD`` value containing a unix time integer value. On return ``RAX`` contains the unix time integer value.
     
 ::
 
@@ -13,7 +13,7 @@ Converts ``QWORD`` values containing date & time information to a unix time ``UN
 
 **Parameters**
 
-* ``qwDate`` - ``QWORD`` value containing **date** information to convert to a ``UNIXTIMESTAMP``.
+* ``qwDate`` - ``QWORD`` value containing **date** information to convert to a unix time integer value.
 
  The format for the value containing the **date** information is as follows:
  
@@ -32,7 +32,7 @@ Converts ``QWORD`` values containing date & time information to a unix time ``UN
     +--------------------------------------------------+------------------------+------------+-----------+
  
    
-* ``qwTime`` - ``QWORD`` value containing **time** information to convert to a ``UNIXTIMESTAMP``.
+* ``qwTime`` - ``QWORD`` value containing **time** information to convert to a unix time integer value.
 
  The format for the value containing the **time** information is as follows:
  
@@ -53,7 +53,7 @@ Converts ``QWORD`` values containing date & time information to a unix time ``UN
 
 **Returns**
 
-On return ``RAX`` will contain the ``UNIXTIMESTAMP`` value.
+On return ``RAX`` will contain the unix time integer value.
 
 **Notes**
 

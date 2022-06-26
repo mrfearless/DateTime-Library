@@ -1,6 +1,6 @@
 ;==============================================================================
 ;
-; DateTime Library x64 v1.0.0.2
+; DateTime Library x64 v1.0.0.3
 ;
 ; Copyright (c) 2022 by fearless
 ;
@@ -53,6 +53,9 @@ include windows.inc
 
 include DateTime.inc
 
+include Masm64.Inc
+includelib Masm64.lib
+
 EXTERN DTDateTimeStringToQwordDateTime :PROTO lpszDateTimeString:QWORD, DateFormat:QWORD
 EXTERN DTQwordDateToJulianDate :PROTO qwDate:QWORD
 EXTERN DTQwordTimeToMillisec :PROTO qwTime:QWORD
@@ -97,6 +100,11 @@ DTDateTimeStringToUnixTime PROC FRAME USES RBX RCX RDX lpszDateTimeString:QWORD,
     LOCAL _ms:QWORD
     LOCAL _UnixEpoch:QWORD
     LOCAL _UnixTime:QWORD
+
+    .IF DateFormat == UNIXTIMESTAMP
+        Invoke atoqw, lpszDateTimeString
+        ret
+    .ENDIF
 
     ;Invoke DTDateToJulianMillisec, CTEXT("1970/01/01"), CCYYMMDD
     mov _UnixEpoch, 2440588d

@@ -1,6 +1,6 @@
 ;==============================================================================
 ;
-; DateTime Library v1.0.0.2
+; DateTime Library v1.0.0.3
 ;
 ; Copyright (c) 2022 by fearless
 ;
@@ -44,6 +44,9 @@ option casemap:none
 include \masm32\macros\macros.asm
 
 include DateTime.inc
+
+include masm32.inc
+includelib masm32.lib
 
 EXTERN DTDateTimeStringToDwordDateTime :PROTO lpszDateTimeString:DWORD, DateFormat:DWORD
 EXTERN DTDwordDateToJulianDate :PROTO dwDate:DWORD
@@ -89,6 +92,11 @@ DTDateTimeStringToUnixTime PROC USES EBX ECX EDX lpszDateTimeString:DWORD, DateF
     LOCAL _ms:DWORD
     LOCAL _UnixEpoch:DWORD
     LOCAL _UnixTime:DWORD
+
+    .IF DateFormat == UNIXTIMESTAMP
+        Invoke atodw, lpszDateTimeString
+        ret
+    .ENDIF
 
     ;Invoke DTDateToJulianMillisec, CTEXT("1970/01/01"), CCYYMMDD
     mov _UnixEpoch, 2440588d

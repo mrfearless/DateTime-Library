@@ -4,7 +4,7 @@
 DTDwordDateTimeToUnixTime 
 ===================================
 
-Converts ``DWORD`` values containing date & time information to a unix time ``UNIXTIMESTAMP`` value. On return ``EAX`` contains the ``UNIXTIMESTAMP`` value.
+Converts ``DWORD`` values containing date & time information to a ``DWORD`` value containing a unix time integer value. On return ``EAX`` contains the unix time integer value.
     
 ::
 
@@ -13,7 +13,7 @@ Converts ``DWORD`` values containing date & time information to a unix time ``UN
 
 **Parameters**
 
-* ``dwDate`` - ``DWORD`` value containing **date** information to convert to a ``UNIXTIMESTAMP``.
+* ``dwDate`` - ``DWORD`` value containing **date** information to convert to a unix time integer value.
 
  The format for the value containing the **date** information is as follows:
  
@@ -32,7 +32,7 @@ Converts ``DWORD`` values containing date & time information to a unix time ``UN
     +------------------------+------------+-----------+
    
    
-* ``dwTime`` - ``DWORD`` value containing **time** information to convert to a ``UNIXTIMESTAMP``.
+* ``dwTime`` - ``DWORD`` value containing **time** information to convert to a unix time integer value.
 
  The format for the value containing the **time** information is as follows:
  
@@ -53,7 +53,7 @@ Converts ``DWORD`` values containing date & time information to a unix time ``UN
 
 **Returns**
 
-On return ``EAX`` will contain the ``UNIXTIMESTAMP`` value.
+On return ``EAX`` will contain the unix time integer value.
 
 **Notes**
 

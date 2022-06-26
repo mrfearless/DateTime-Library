@@ -4,7 +4,7 @@
 DTUnixTimeToDwordDateTime 
 ===================================
 
-Converts a unix time ``UNIXTIMESTAMP`` value to ``DWORD`` values containing date and time information.
+Converts a ``DWORD`` containing a unix time integer value to ``DWORD`` values containing date and time information.
     
 ::
 
@@ -13,7 +13,7 @@ Converts a unix time ``UNIXTIMESTAMP`` value to ``DWORD`` values containing date
 
 **Parameters**
 
-* ``UnixTime`` - Unix timestamp value ``UNIXTIMESTAMP`` to convert to ``DWORD`` date & time values.
+* ``UnixTime`` - ``DWORD`` containing a unix time integer value to convert to ``DWORD`` date & time values.
 
 
 **Returns**
