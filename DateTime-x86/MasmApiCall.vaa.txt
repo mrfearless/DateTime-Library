@@ -1,0 +1,30 @@
+;------------------------------------------------------------------------------------------------
+; DateTime Library x86
+;
+; Paste the text below at the end of \WinAsm\API\MasmApiCall.vaa to add these to WinASM
+;
+;------------------------------------------------------------------------------------------------
+DTGetDateTime,lpszDateTimeString,DateFormat'
+DTDateFormat,lpSystermtimeStruct,lpszDateTimeString,DateFormat'
+DTDateTimeStringToDwordDateTime,lpszDateTimeString,DateFormat'
+DTDwordDateTimeToDateTimeString,dwDate,dwTime,lpszDateTimeString,DateFormat'
+DTDwordDateToJulianDate,dwDate
+DTJulianDateToDwordDate,JulianDate
+DTDateTimeStringToJulianMillisec,lpszDateTimeString,DateFormat'
+DTJulianMillisecToDateTimeString,JulianDate,Milliseconds,lpszDateTimeString,DateFormat'
+DTDwordDateTimeToJulianMillisec,dwDate,dwTime
+DTJulianMillisecToDwordDateTime,JulianDate,Milliseconds
+DTDateTimeStringToUnixTime,lpszDateTimeString,DateFormat'
+DTUnixTimeToDateTimeString,UnixTime,lpszDateTimeString,DateFormat'
+DTDwordDateTimeToUnixTime,dwDate,dwTime
+DTUnixTimeToDwordDateTime,UnixTime
+DTDwordTimeToMillisec,dwTime
+DTMillisecToDwordTime,Milliseconds
+DTDayOfWeek,lpszDateTimeString,DateFormat'
+DTIsLeapYear,dwYear
+DTDay,lpszDateTimeString,DateFormat'
+DTMonth,lpszDateTimeString,DateFormat'
+DTYear,lpszDateTimeString,DateFormat'
+DTDateStringsCompare,lpszDateTimeString1,lpszDateTimeString2,DateFormat'
+DTDateStringsDifference,lpszDateTimeString1,lpszDateTimeString2,DateFormat'
+DTDateTimeStringsDifference,lpszDateTimeString1,lpszDateTimeString2,DateFormat'
