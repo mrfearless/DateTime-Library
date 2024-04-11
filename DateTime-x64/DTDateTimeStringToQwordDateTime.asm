@@ -65,13 +65,14 @@ _DTStripDateTimeString PROTO lpszDateTimeString:QWORD, lpszStrippedString:QWORD
 DATETIME_ALIGN
 ;------------------------------------------------------------------------------
 ; Strips a datetime string of all '/', ':' and space characters - #INTERNAL#
+; 11/04/2024 Added '-', 'T' and 'Z' to strip as well.
 ;------------------------------------------------------------------------------
 _DTStripDateTimeString PROC FRAME USES RDI RSI lpszDateTimeString:QWORD, lpszStrippedString:QWORD
     mov rsi, lpszDateTimeString
     mov rdi, lpszStrippedString ; rdi will point to somewhere to store the next output byte
     .WHILE byte ptr [rsi] != 0 ; while not null character, loop
         movzx rax, byte ptr [esi]
-        .IF al == "/" || al == ":" || al == " "
+        .IF al == "/" || al == ":" || al == " " || al == "-" || al == "T" || al == "Z"
             inc rsi
         .ELSE
             mov byte ptr [rdi], al

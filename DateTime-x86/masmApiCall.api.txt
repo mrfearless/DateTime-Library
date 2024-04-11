@@ -6,6 +6,7 @@
 ;------------------------------------------------------------------------------------------------
 DTGetDateTime,lpszDateTimeString,DateFormat
 DTDateFormat,lpSystermtimeStruct,lpszDateTimeString,DateFormat
+DTDateTimeStringToDateTimeString,lpszDateTimeStringIn,DateFormatIn,lpszDateTimeStringOut,DateFormatOut
 DTDateTimeStringToDwordDateTime,lpszDateTimeString,DateFormat
 DTDwordDateTimeToDateTimeString,dwDate,dwTime,lpszDateTimeString,DateFormat
 DTDwordDateToJulianDate,dwDate

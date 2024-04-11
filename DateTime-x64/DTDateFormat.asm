@@ -158,10 +158,10 @@ DTDateFormat PROC FRAME USES RBX RDX RSI lpSystemtimeStruct:QWORD, lpszDateTimeS
             ret
         .ENDIF
         ;CCYYMMDDHH
-        Invoke lstrcat, lpszDateTimeString, CTEXT(" ")
+        Invoke lstrcat, lpszDateTimeString, Addr szDTSpace
         Invoke lstrlen, Addr Hour
         .IF eax == 1
-            Invoke lstrcat, lpszDateTimeString, CTEXT("0")
+            Invoke lstrcat, lpszDateTimeString, Addr szDTZero
         .ENDIF
         Invoke lstrcat, lpszDateTimeString, Addr Hour
         .IF DateFormat == CCYYMMDDHH
@@ -169,12 +169,12 @@ DTDateFormat PROC FRAME USES RBX RDX RSI lpSystemtimeStruct:QWORD, lpszDateTimeS
             ret
         .ENDIF          
         ; CCYYMMDDHHMM
-        Invoke lstrcat, lpszDateTimeString, Addr szDTSpace
-        Invoke lstrlen, Addr Hour
-        .IF eax == 1
-            Invoke lstrcat, lpszDateTimeString, Addr szDTZero
-        .ENDIF
-        Invoke lstrcat, lpszDateTimeString, Addr Hour
+;        Invoke lstrcat, lpszDateTimeString, Addr szDTSpace
+;        Invoke lstrlen, Addr Hour
+;        .IF eax == 1
+;            Invoke lstrcat, lpszDateTimeString, Addr szDTZero
+;        .ENDIF
+;        Invoke lstrcat, lpszDateTimeString, Addr Hour
         Invoke lstrcat, lpszDateTimeString, Addr szDTTimeSeperator
         Invoke lstrlen, Addr Minute
         .IF eax == 1

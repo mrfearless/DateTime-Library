@@ -63,13 +63,14 @@ EXTERN DTDwordTimeToMillisec :PROTO dwTime:DWORD
 DATETIME_ALIGN
 ;------------------------------------------------------------------------------
 ; Strips a datetime string of all '/', ':' and space characters - #INTERNAL#
+; 11/04/2024 Added '-', 'T' and 'Z' to strip as well.
 ;------------------------------------------------------------------------------
 _DTStripDateTimeString PROC USES EDI ESI lpszDateTimeString:DWORD, lpszStrippedString:DWORD
     mov esi, lpszDateTimeString
     mov edi, lpszStrippedString ; edi will point to somewhere to store the next output byte
     .WHILE byte ptr [esi] != 0 ; while not null character, loop
         movzx eax, byte ptr [esi]
-        .IF al == "/" || al == ":" || al == " "
+        .IF al == "/" || al == ":" || al == " " || al == "-" || al == "T" || al == "Z"
             inc esi
         .ELSE
             mov byte ptr [edi], al

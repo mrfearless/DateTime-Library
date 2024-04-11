@@ -1,8 +1,8 @@
 ;==============================================================================
 ;
-; DateTime Library x64 v1.0.0.3
+; DateTime Library x64 v1.0.0.4
 ;
-; Copyright (c) 2022 by fearless
+; Copyright (c) 2024 by fearless
 ;
 ; All Rights Reserved
 ;
@@ -86,6 +86,8 @@ DTGetDateTime                       PROTO lpszDateTimeString:QWORD, DateFormat:Q
 
 ; Format SYSTEMTIME as Date & Time
 DTDateFormat                        PROTO lpSystermtimeStruct:QWORD, lpszDateTimeString:QWORD, DateFormat:QWORD
+
+DTDateTimeStringToDateTimeString    PROTO lpszDateTimeStringIn:QWORD, DateFormatIn:QWORD, lpszDateTimeStringOut:QWORD, DateFormatOut:QWORD
 
 ; DateTime String <=> QWORD DateTime Functions
 DTDateTimeStringToQwordDateTime     PROTO lpszDateTimeString:QWORD, DateFormat:QWORD
